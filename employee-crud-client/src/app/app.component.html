@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color: white" routerLink="employees">Spring Boot 2.2 with Angular 8</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="employees">Employee List</a></li>
+      <li><a routerLink="add">Add Employee</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Employees
+    </div>
+    <div class="panel-body">
+        <table id="employeeListTable" class=" table table-stripped">
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <!--<td>Last Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>-->
+                    <td colspan="3">
+                        Actions
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees; let i = index;">
+                    <td>{{employee.firstName}}</td>
+                    <!--<td>{{employee.lastName}}</td>
+                    <td>{{employee.emailId}}</td>
+                    <td>{{employee.phone}}</td>-->
+                    <td><button class="btn btn-info" (click)="viewEmployee(employee.employeeId)">Details</button></td>
+                    <td><button class="btn btn-danger" (click)="deleteEmployee(employee.employeeId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="footer">
+  <p>Footer</p>
+</div>
+<router-outlet></router-outlet>
